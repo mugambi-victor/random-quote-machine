@@ -15,16 +15,24 @@ const styles={
     height:'100vh',
     alignItems:'center',
     transition:'1s'
-  },x:{
-    margin:'2rem',
-    padding:'2rem',
-    display:'flex',
-    flexDirection:'column',
-    maxWidth: '400px',
-    width: '100%',
-    minWidth: '600px',
-  }
-};
+  },
+     x:{
+      padding:'2rem',
+      display: 'flex',
+      justifyContent:'center',
+      flexDirection: 'column',
+      
+      width: '100%',
+      maxWidth: 400,  // Make sure to use a number for maxWidth
+      
+    '@media(max-width:997px)':{
+      width:'90%',
+      marginLeft: '1rem',
+      padding:'.3rem'
+    }
+    }
+  };
+  
 
 class App extends React.Component {
   constructor(props) {
@@ -81,10 +89,12 @@ class App extends React.Component {
       <Typography>
           <Grid  sx={{ ...styles.container, backgroundColor }} justifyContent="center" id="quote-box" container>
         <Grid item>
-<Card sx={styles.x}>
+<Card  sx={
+        styles.x
+      } >
        <Grid item>
        <Textwrapper
-  sx={{ padding: '2rem' }}
+ 
   color={textColor}
   text={
     currentQuote ? (
