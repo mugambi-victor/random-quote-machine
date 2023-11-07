@@ -10,27 +10,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 const styles={
+  margin:'0',
   container:{
+    margin:'0',
     display:'flex',
     height:'100vh',
     alignItems:'center',
-    transition:'1s'
+    transition:'1s',
   },
-     x:{
-      padding:'2rem',
-      display: 'flex',
-      justifyContent:'center',
-      flexDirection: 'column',
-      
+    card: {
+      maxWidth: '600px',
       width: '100%',
-      maxWidth: 400,  // Make sure to use a number for maxWidth
-      
-    '@media(max-width:997px)':{
-      width:'90%',
-      marginLeft: '1rem',
-      padding:'.3rem'
+      display: 'flex',
+      flexDirection: 'column',
+      padding:'10px;',
+      '@media (max-width: 600px)': {
+        width: '60%', // Adjust width for smaller screens
+        margin:'auto'
+      },
     }
-    }
+    
   };
   
 
@@ -89,11 +88,12 @@ class App extends React.Component {
       <Typography>
           <Grid  sx={{ ...styles.container, backgroundColor }} justifyContent="center" id="quote-box" container>
         <Grid item>
-<Card  sx={
-        styles.x
+          <Card  sx={
+        styles.card
       } >
        <Grid item>
-       <Textwrapper
+       <Textwrapper 
+        style={{ wordWrap: 'break-word' }}
  
   color={textColor}
   text={
@@ -114,7 +114,7 @@ class App extends React.Component {
        </Grid>
         <Grid item>
         <>
-          <a sx={{textDecoration:'none'}}
+          <a sx={{textDecoration:'none' ,float:'left'}}
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               currentQuote ? currentQuote.quote + ' - ' + currentQuote.author : ''
             )}`}
