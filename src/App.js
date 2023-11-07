@@ -25,7 +25,7 @@ const styles={
       flexDirection: 'column',
       padding:'10px;',
       '@media (max-width: 600px)': {
-        width: '60%', // Adjust width for smaller screens
+        width: '80%', // Adjust width for smaller screens
         margin:'auto'
       },
     }
